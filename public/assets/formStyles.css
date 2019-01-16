@@ -1,0 +1,27 @@
+body{
+    font-family: 'Abel', sans-serif;
+    background-image: url('https://images.pexels.com/photos/1200436/pexels-photo-1200436.jpeg?cs=srgb&dl=background-image-beautiful-early-morning-1200436.jpg&fm=jpg');
+    background-size: cover;
+}
+
+form{
+    padding:10% 0;
+    margin:5% 0;
+}
+
+a{
+    width:100%;
+}
+
+.btn, .btn-large{
+    background-color:#ffab40;
+    color:white;
+}
+
+.header{
+    color:white;
+}
+
+.notWhite{
+    color:black;
+}

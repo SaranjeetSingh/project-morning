@@ -1,0 +1,131 @@
+
+
+<div id="modalUser" class="modal center-align">
+  <div class="modal-content ">
+    <h4>Your User Number is</h4>
+    <h3 id='modalUserNumber'>{{userNumber}}</h3>
+    <h5 id='cityInner'>{{city}}</h5>
+    <p>you can use this number to get your Morning Info from wherever you are!</p>
+    <h5 id='nameInner'>{{name}}</h5>
+    <h5 id='latitudeInner'>{{latitude}}</h5>
+    <h5 id='longitudeInner'>{{longitude}}</h5>
+    <a id='closeModal'class='modal-close btn btn-large waves-effect'>Close</a> 
+  </div>
+</div>
+
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+        <a href='#modalUser'class="modal-trigger brand-logo">{{name}}'s morning</a>
+        {{!-- <h2 class='left-align brand-logo'>{{name}}'s morning</h2> --}}
+        <a href="#" data-target="todoList" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="#toDo">To Do</a></li>
+          <li><a href="#weather">Weather</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#toothTimer">Tooth Timer</a></li>
+          <li><a href='#modalUser' class='modal-trigger'>View User Number</a></li>
+        </ul>
+    </div>
+  </nav>
+</div>
+
+<ul id='todoList'class="sidenav">
+   <li><a href="#toDo">To Do</a></li>
+    {{!-- <li><a href="#weather">Weather</a></li> --}}
+    <li><a href="#news">News</a></li>
+    <li><a href="#toothTimer">Tooth Timer</a></li>
+    <li><a href='#modalUser' class='modal-trigger'>View User Number</a></li>
+</ul>
+
+<div class="parallax-container">
+    <div class="parallax valign-wrapper"><img src="./assets/images/weatherBack2.jpg"></div>
+    {{#if motivation}}
+      <h1 id='motivation'class='center-align'>{{motivation}}</h1>
+    {{/if}}
+</div>
+
+<div class='row section scrollspy' id='toDo'>
+    <div class='container'>
+      <div class='col s12'>
+        <ul class='todos collection collapsible'>
+          <li class="collection-header center-align"><h2>Tasks for today</h2></li>
+          {{#each todos}}
+            {{#unless completed}}
+                <a href='#!' id='{{this.id}}' class='todoTask collection-item'>{{this.description}}</a>
+            {{/unless}}
+          {{/each}}
+          {{#each todos}}
+            {{#if completed}}
+                <li id='{{this.id}}' class='strikethrough collection-item'>{{this.description}}</li>
+            {{/if}}
+          {{/each}}
+           <li>
+            <div class="collapsible-header"><i class="material-icons">add</i>ADD TASK</div>
+            <div class="collapsible-body">
+              <form>
+                <input placeholder="what are we getting done today?" id="newTask" type="text" class="validate">
+                <a type="submit" id='addTask'class='btn-large waves-effect'><i class="material-icons">add</i></a>
+                <a id='clearTasks'class='red btn-large waves-effect'>Clear all tasks</a>
+              </form>
+            </div>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+</div>
+
+<div class="parallax-container center-align" id="weatherBaby">
+  <div class="parallax"><img src="./assets/images/weatherBack2.jpg"></div>
+  <h2 class='whiteText section scrollspy' id='weather'>Weather<span id="weather-city">{{city}}</span></h2>
+  {{!-- <button onclick="showPosition()">Try It!</button> --}}
+    <input type="hidden" id="longi" value='{{longitude}}'></input>
+    <input type="hidden" id="lat" value='{{latitude}}'></input>
+  <!-- weather current location tracker -->
+  <div id="demo" class="inline"></div><div id="demo2" class="inline"></div><div id="demo3" class="inline"></div>
+</div>
+
+<div class="parallax-container center-align buttonContainer" id="tooth">
+  <div class="parallax"><img src="./assets/images/weatherBack2.jpg"></div>
+  <h2 class='whiteText section scrollspy' id='toothTimer'>Teethbrushing Timer</h2>
+  <a id="toothTimerButton" type="button" class="btn btn-large hoverable white-text">Start Timer</a>
+</div>
+
+
+<div class='row scrollspy' id='news'>
+    <div id='newsContainer'class='center-align container col s12'>
+      <h2 class='center-align'>Your Top Headlines</h2>
+      <div class='col s12 m6 center-align'>
+        {{#each articlesLeft}}
+            <div class="card large cardLeft hoverable left">
+              <div class="card-image">
+                <img src="{{this.urlToImage}}">
+                <span class="card-title">{{this.source.name}}</span>
+              </div>
+              <div class="card-content">
+                <a target="_blank" href="{{this.url}}" class="card-title">{{this.title}}</a>
+                <p class='newsSummary'>{{this.description}}</p>
+              </div>
+            </div>
+        {{/each}}
+      </div>   
+        <div class='col s12 m6 center-align'>
+        {{#each articlesRight}}
+            <div class="card large hoverable right">
+              <div class="card-image">
+                <img src="{{this.urlToImage}}">
+                <span class="card-title">{{this.source.name}}</span>
+              </div>
+              <div class="card-content">
+                <a target="_blank" href="{{this.url}}" class="card-title">{{this.title}}</a>
+                <p class='newsSummary'>{{this.description}}</p>
+              </div>
+            </div>
+        {{/each}}
+      </div>          
+      
+    </div>
+</div>
+
+
