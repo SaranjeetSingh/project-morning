@@ -1,7 +1,7 @@
 // var app = express();
 const NewsAPI = require('newsapi');
 // const newsapi = new NewsAPI('d5541b69da554cd18c2dccb01c5cd640');
-const newsApiKey = require('../config/keys').weather.newsKey;
+const newsApiKey = require('../config/keys').newsKey;
 console.log(newsApiKey);
 const newsapi = new NewsAPI(newsApiKey);
 

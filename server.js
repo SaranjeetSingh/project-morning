@@ -35,7 +35,7 @@ app.post("/api/weather", function(req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
     // console.log(keys.weather);
-    var weather = keys.weather.id;
+    var weather = keys.id;
     var loc = req.body;
     //loc.longitude loc.latitude
     var long = loc.longitude; //40.7406424 
@@ -64,7 +64,7 @@ app.post("/api/cityPosition", function(req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
     // console.log(keys.weather);
-    var position = keys.weather.key;
+    var position = keys.key;
     var city = req.body.city;
     var state = req.body.state;
     console.log(position);
@@ -96,7 +96,7 @@ app.post("/api/news", function(req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
     // console.log(keys.weather);
-    var newskey = keys.weather.newsKey;
+    var newskey = keys.newsKey;
     // var selection = req.body;
     var selection = "business+sports";
     axios.get('https://newsapi.org/v2/everything?q=' + selection + '&apiKey=' + newskey)

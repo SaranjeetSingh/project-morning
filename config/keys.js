@@ -1,4 +1,4 @@
-exports.weather = {
+module.exports = {
     id: process.env.weather_api,
     key: process.env.position_api,
     newsKey: process.env.NEWS_API_KEY
@@ -8,3 +8,4 @@ exports.weather = {
 // module.exports={
 //     newsKey:process.env.NEWS_API_KEY
 // }
+// 
