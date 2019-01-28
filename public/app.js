@@ -1,5 +1,4 @@
 if(!localStorage.getItem('userMorningInfo')){
-    alert('no user info found. getting user info from modal.')
     var thisUserInformation={
         userNumber:$('#modalUserNumber').html(),
         name: $('#nameInner').html(),
@@ -8,7 +7,6 @@ if(!localStorage.getItem('userMorningInfo')){
         latitude:$('#latitudeInner').html()
     }
     localStorage.setItem('userMorningInfo',JSON.stringify(thisUserInformation));
-    alert('localStorage item set!')
 
 }else{
     let objUserInfo = JSON.parse(localStorage.getItem('userMorningInfo'));
