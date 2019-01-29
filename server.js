@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").load();
 var express = require('express');
 var path = require("path");
 var keys = require("./config/keys.js");
